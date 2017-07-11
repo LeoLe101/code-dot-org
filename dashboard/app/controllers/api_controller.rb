@@ -58,7 +58,7 @@ class ApiController < ApplicationController
         )
       end
 
-      section = Section.from_omniauth(course_id, Section::LOGIN_TYPE_GOOGLE_CLASSROOM, students, current_user.id)
+      section = GoogleClassroomSection.from_omniauth(course_id,  current_user.id, students)
       render json: section.summarize
     end
   end
